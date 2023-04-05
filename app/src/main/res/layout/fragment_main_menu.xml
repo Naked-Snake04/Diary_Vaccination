@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/look_all_entry" />
                 <Button
-                    android:id="@+id/selectAllUser"
+                    android:id="@+id/selectAllPatients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/look_all_patients" />
