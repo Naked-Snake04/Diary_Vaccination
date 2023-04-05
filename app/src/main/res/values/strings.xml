@@ -27,6 +27,8 @@
     <string name="vaccine_name_hint">Vaccine Name</string>
     <string name="two_component">Two-component</string>
     <string name="vaccine_list">Vaccine List</string>
+    <string name="select_header_vaccine">Vaccine:</string>
+    <string name="select_count_components">Components:</string>
     <string-array name="spinner_test">
         <item>1</item>
         <item>2</item>
