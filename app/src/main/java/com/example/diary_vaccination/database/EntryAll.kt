@@ -6,7 +6,7 @@ data class EntryAll(
     val patient_last_name: String,
     val patient_birthday: String,
     val vaccine_name: String,
-    val component: String,
+    val component: Long,
     val vaccine_date: String,
     val vaccine_time: String
 )

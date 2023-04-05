@@ -88,7 +88,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/qualiti_user_id"
+        android:id="@+id/patient_id"
         android:text="@string/clear"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"/>
