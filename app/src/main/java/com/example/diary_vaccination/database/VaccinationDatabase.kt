@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [Patient::class, Vaccine::class, Entry::class],
-    version = 1, exportSchema = true)
+    version = 1, exportSchema = false)
 abstract class VaccinationDatabase : RoomDatabase() {
 
     companion object {

@@ -19,7 +19,7 @@
                 android:orientation="vertical" >
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/select_tasks"
+                    android:id="@+id/select_entries"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

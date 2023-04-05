@@ -30,6 +30,10 @@ class AllEntryAdapterList(private val onClickListener: EntryOnClickListener):
         holder.entryComponent.text = item.component.toString()
         holder.entryDate.text = item.vaccine_date
         holder.entryTime.text = item.vaccine_time
+
+        holder.entryId.setOnClickListener {
+            onClickListener.entryOnClick(item.entry_id.toString())
+        }
     }
 
     override fun getItemCount(): Int {

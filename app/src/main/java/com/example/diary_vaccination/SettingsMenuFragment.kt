@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.diary_vaccination.database.VaccinationDatabase
 import com.example.diary_vaccination.databinding.FragmentSettingsMenuBinding
@@ -40,9 +41,11 @@ class SettingsMenuFragment : Fragment() {
         val toastClearEntries = "Entries has been clear"
         val duration = Toast.LENGTH_SHORT
 
-        /**
-         * TODO: Сделать адаптер
-         */
+        val adapter = VaccineAdapter()
+        binding.selectVaccines.adapter = adapter
+        viewModelVaccine.vaccines.observe(viewLifecycleOwner, Observer { vaccines ->
+            adapter.data = vaccines
+        })
 
         binding.apply {
             clearAllPatient.setOnClickListener {
