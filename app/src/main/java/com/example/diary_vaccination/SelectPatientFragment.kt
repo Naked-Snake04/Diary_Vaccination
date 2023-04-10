@@ -36,6 +36,10 @@ class SelectPatientFragment : Fragment() {
             object: PatientOnClickListener{
                 override fun patientOnClick(id: String) {
                     viewModelPatient.clearToPatient(id)
+                    /**
+                     * TODO: Поправить костыль с удалением записей (надо удалить не все, а конкретные с пациентами)
+                     */
+                    viewModelEntry.clearAllEntries()
                 }
             })
         binding.selectPatients.adapter = adapterPatient
