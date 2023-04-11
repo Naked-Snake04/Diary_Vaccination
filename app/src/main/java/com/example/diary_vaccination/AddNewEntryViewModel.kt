@@ -34,6 +34,18 @@ class AddNewEntryViewModel(
         }
     }
 
+    fun clearEntryByPatientId(id: String){
+        uiScope.launch {
+            clearEntryByPatientIdQuery(id)
+        }
+    }
+
+    private suspend fun clearEntryByPatientIdQuery(id: String) {
+        withContext(Dispatchers.IO){
+            dao.clearEntryById(id)
+        }
+    }
+
     fun clearAllEntries() {
         uiScope.launch {
             clearAllEntriesQueries()

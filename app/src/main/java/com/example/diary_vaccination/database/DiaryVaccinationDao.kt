@@ -62,6 +62,10 @@ interface DiaryVaccinationDao {
             "WHERE e.entry_id = :key")
     fun getEntry(key: Long): EntryAll?
 
+    @Query("DELETE FROM entry WHERE patient_id = :key")
+    fun clearEntryById(key: String)
+
+
     @Query("SELECT e.entry_id, p.patient_name, p.patient_last_name, p.patient_birthday, " +
             "v.vaccine_name, e.component, e.vaccine_date, e.vaccine_time " +
             "FROM entry AS e " +
