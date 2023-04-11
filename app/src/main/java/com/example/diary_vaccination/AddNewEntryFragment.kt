@@ -13,8 +13,8 @@ import com.example.diary_vaccination.database.VaccinationDatabase
 import com.example.diary_vaccination.databinding.FragmentAddNewEntryBinding
 
 private lateinit var viewModelVaccine: AddNewVaccineViewModel
-private lateinit var viewModelEntry: AddNewEntryViewModel
-private lateinit var viewModelPatient: AddNewPatientViewModel
+private lateinit var viewModelEntry: EntryViewModel
+private lateinit var viewModelPatient: PatientViewModel
 
 class AddNewEntryFragment : Fragment() {
     override fun onCreateView(
@@ -28,8 +28,8 @@ class AddNewEntryFragment : Fragment() {
         val viewModelPatientFactory = AddNewPatientViewModelFactory(dao, application)
 
         viewModelVaccine = ViewModelProvider(this, viewModelVaccineFactory)[AddNewVaccineViewModel::class.java]
-        viewModelEntry = ViewModelProvider(this, viewModelEntryFactory)[AddNewEntryViewModel::class.java]
-        viewModelPatient = ViewModelProvider(this, viewModelPatientFactory)[AddNewPatientViewModel::class.java]
+        viewModelEntry = ViewModelProvider(this, viewModelEntryFactory)[EntryViewModel::class.java]
+        viewModelPatient = ViewModelProvider(this, viewModelPatientFactory)[PatientViewModel::class.java]
 
         val binding = DataBindingUtil.inflate<FragmentAddNewEntryBinding>(
             inflater, R.layout.fragment_add_new_entry, container, false)

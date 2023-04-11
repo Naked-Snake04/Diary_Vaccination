@@ -7,7 +7,7 @@ import com.example.diary_vaccination.database.DiaryVaccinationDao
 import com.example.diary_vaccination.database.Patient
 import kotlinx.coroutines.*
 
-class AddNewPatientViewModel(
+class PatientViewModel(
     val dao: DiaryVaccinationDao,
     application: Application) : AndroidViewModel(application) {
     private var viewModelJob = Job()

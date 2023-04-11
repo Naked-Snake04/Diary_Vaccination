@@ -13,8 +13,8 @@ import com.example.diary_vaccination.databinding.FragmentSelectEntryBinding
 
 class SelectEntryFragment : Fragment() {
     private lateinit var viewModelVaccine: AddNewVaccineViewModel
-    private lateinit var viewModelEntry: AddNewEntryViewModel
-    private lateinit var viewModelPatient: AddNewPatientViewModel
+    private lateinit var viewModelEntry: EntryViewModel
+    private lateinit var viewModelPatient: PatientViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +27,8 @@ class SelectEntryFragment : Fragment() {
         val viewModelPatientFactory = AddNewPatientViewModelFactory(dao, application)
 
         viewModelVaccine = ViewModelProvider(this, viewModelVaccineFactory)[AddNewVaccineViewModel::class.java]
-        viewModelEntry = ViewModelProvider(this, viewModelEntryFactory)[AddNewEntryViewModel::class.java]
-        viewModelPatient = ViewModelProvider(this, viewModelPatientFactory)[AddNewPatientViewModel::class.java]
+        viewModelEntry = ViewModelProvider(this, viewModelEntryFactory)[EntryViewModel::class.java]
+        viewModelPatient = ViewModelProvider(this, viewModelPatientFactory)[PatientViewModel::class.java]
 
         val binding = DataBindingUtil.inflate<FragmentSelectEntryBinding>(
             inflater, R.layout.fragment_select_entry, container, false)

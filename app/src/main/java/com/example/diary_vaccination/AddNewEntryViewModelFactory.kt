@@ -11,8 +11,8 @@ class AddNewEntryViewModelFactory (
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(AddNewEntryViewModel::class.java)){
-            return AddNewEntryViewModel(dao,application) as T
+        if (modelClass.isAssignableFrom(EntryViewModel::class.java)){
+            return EntryViewModel(dao,application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

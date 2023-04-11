@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.example.diary_vaccination.database.VaccinationDatabase
 import com.example.diary_vaccination.databinding.FragmentAddNewPatientBinding
 
 class AddNewPatientFragment : Fragment() {
 
-    private lateinit var viewModel: AddNewPatientViewModel
+    private lateinit var viewModel: PatientViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +25,7 @@ class AddNewPatientFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val dao = VaccinationDatabase.getInstance(application).getDiaryVaccinationDao()
         val viewModelFactory = AddNewPatientViewModelFactory(dao, application)
-        viewModel = ViewModelProvider(this, viewModelFactory)[AddNewPatientViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[PatientViewModel::class.java]
 
         val toastText = "The Patient has been added"
         val toastError =  "Fields is not filled. Try again"
