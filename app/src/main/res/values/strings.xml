@@ -31,6 +31,7 @@
     <string name="component">Component:</string>
     <string name="date">Date:</string>
     <string name="time">Time:</string>
+    <string name="edit">Edit</string>
     <string-array name="spinner_test">
         <item>1</item>
         <item>2</item>
