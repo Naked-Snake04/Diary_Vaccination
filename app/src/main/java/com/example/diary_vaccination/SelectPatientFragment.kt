@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.diary_vaccination.database.VaccinationDatabase
 import com.example.diary_vaccination.databinding.FragmentSelectPatientBinding
 
@@ -37,6 +38,13 @@ class SelectPatientFragment : Fragment() {
                 override fun patientOnClick(id: String) {
                     viewModelPatient.clearToPatient(id)
                     viewModelEntry.clearEntryByPatientId(id)
+                }
+
+                override fun navigatePatientEdit() {
+                    view?.let {
+                        Navigation.findNavController(it)
+                            .navigate(R.id.action_selectPatientFragment_to_editPatientFragment)
+                    }
                 }
             })
         binding.selectPatients.adapter = adapterPatient

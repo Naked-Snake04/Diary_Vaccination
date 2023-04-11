@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_selectEntryFragment_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/action_selectEntryFragment_to_editEntryFragment"
+            app:destination="@id/editEntryFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectPatientFragment"
@@ -55,6 +58,9 @@
         <action
             android:id="@+id/action_selectPatientFragment_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/action_selectPatientFragment_to_editPatientFragment"
+            app:destination="@id/editPatientFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsMenuFragment"
@@ -64,4 +70,12 @@
             android:id="@+id/action_settingsMenuFragment_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editEntryFragment"
+        android:name="com.example.diary_vaccination.EditEntryFragment"
+        android:label="EditEntryFragment" />
+    <fragment
+        android:id="@+id/editPatientFragment"
+        android:name="com.example.diary_vaccination.EditPatientFragment"
+        android:label="EditPatientFragment" />
 </navigation>

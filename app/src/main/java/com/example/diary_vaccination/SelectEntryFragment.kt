@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.diary_vaccination.database.VaccinationDatabase
 import com.example.diary_vaccination.databinding.FragmentSelectEntryBinding
 
@@ -37,6 +38,13 @@ class SelectEntryFragment : Fragment() {
             object: EntryOnClickListener{
                 override fun entryOnClick(id: String) {
                     viewModelEntry.clearToEntry(id)
+                }
+
+                override fun navigateEdit() {
+                    view?.let {
+                        Navigation.findNavController(it)
+                            .navigate(R.id.action_selectEntryFragment_to_editEntryFragment)
+                    }
                 }
             }
         )

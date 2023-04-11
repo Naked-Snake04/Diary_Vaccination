@@ -34,6 +34,11 @@ class AllEntryAdapterList(private val onClickListener: EntryOnClickListener):
         holder.entryId.setOnClickListener {
             onClickListener.entryOnClick(item.entry_id.toString())
         }
+
+        holder.updateEntry.setOnClickListener {
+            onClickListener.navigateEdit()
+        }
+
     }
 
     override fun getItemCount(): Int {

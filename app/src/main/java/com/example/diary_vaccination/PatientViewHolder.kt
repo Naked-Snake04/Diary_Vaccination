@@ -12,4 +12,6 @@ class PatientViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val patientBirthday: TextView = view.findViewById(R.id.patient_birthday)
 
     val patientId: Button = view.findViewById(R.id.patient_id)
+
+    var updatePatient: Button = view.findViewById(R.id.update_patient)
 }

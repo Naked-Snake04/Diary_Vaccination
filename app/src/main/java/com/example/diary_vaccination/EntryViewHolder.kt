@@ -15,4 +15,5 @@ class EntryViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val entryTime: TextView = view.findViewById(R.id.entry_time)
 
     val entryId: Button = view.findViewById(R.id.entry_id)
+    val updateEntry: Button = view.findViewById(R.id.update_entry)
 }

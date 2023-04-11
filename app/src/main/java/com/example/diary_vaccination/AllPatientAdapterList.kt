@@ -30,6 +30,9 @@ class AllPatientAdapterList(private val onClickListener: PatientOnClickListener)
         holder.patientId.setOnClickListener {
             onClickListener.patientOnClick(item.patientId.toString())
         }
+        holder.updatePatient.setOnClickListener {
+            onClickListener.navigatePatientEdit()
+        }
     }
 
     override fun getItemCount(): Int {
