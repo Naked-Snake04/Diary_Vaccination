@@ -40,7 +40,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/search_by_date"
-                        android:inputType="number" />
+                        android:inputType="date" />
                     <Button
                         android:id="@+id/filter_button"
                         android:layout_width="wrap_content"
