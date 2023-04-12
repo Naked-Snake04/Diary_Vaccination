@@ -32,6 +32,9 @@
     <string name="date">Date:</string>
     <string name="time">Time:</string>
     <string name="edit">Edit</string>
+    <string name="search_by_last_name">Search by Last Name</string>
+    <string name="filter_text">filter</string>
+    <string name="search_by_date">Search by Date</string>
     <string-array name="spinner_test">
         <item>1</item>
         <item>2</item>

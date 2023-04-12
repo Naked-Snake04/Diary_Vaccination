@@ -17,13 +17,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
 
+                <EditText
+                    android:id="@+id/editTextFilterLastName"
+                    android:layout_width="318dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/search_by_last_name"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+                    <EditText
+                        android:id="@+id/filter_vaccine_date"
+                        android:layout_width="318dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/search_by_date"
+                        android:inputType="number" />
+                    <Button
+                        android:id="@+id/filter_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_text"/>
+                </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/select_entries"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    />
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
         </ScrollView>
     </FrameLayout>

@@ -62,10 +62,6 @@ interface DiaryVaccinationDao {
             "WHERE e.entry_id = :key")
     fun getEntry(key: Long): EntryAll?
 
-    @Query("DELETE FROM entry WHERE patient_id = :key")
-    fun clearEntryById(key: String)
-
-
     @Query("SELECT e.entry_id, p.patient_name, p.patient_last_name, p.patient_birthday, " +
             "v.vaccine_name, e.component, e.vaccine_date, e.vaccine_time " +
             "FROM entry AS e " +
@@ -73,4 +69,32 @@ interface DiaryVaccinationDao {
             "LEFT JOIN vaccine AS v ON v.vaccine_id = e.vaccine_id " +
             "ORDER BY e.entry_id DESC")
     fun getAllEntries(): LiveData<List<EntryAll>>
+
+    @Query("DELETE FROM entry WHERE patient_id = :key")
+    fun clearEntryById(key: String)
+
+    @Query("SELECT e.entry_id, p.patient_name, p.patient_last_name, p.patient_birthday, " +
+            "v.vaccine_name, e.component, e.vaccine_date, e.vaccine_time " +
+            "FROM entry AS e " +
+            "LEFT JOIN patient AS p ON p.patient_id = e.patient_id " +
+            "LEFT JOIN vaccine AS v ON v.vaccine_id = e.vaccine_id " +
+            "WHERE p.patient_last_name = :lastName")
+    fun getFilteredByLastName(lastName: String): LiveData<List<EntryAll>>
+
+    @Query("SELECT e.entry_id, p.patient_name, p.patient_last_name, p.patient_birthday, " +
+            "v.vaccine_name, e.component, e.vaccine_date, e.vaccine_time " +
+            "FROM entry AS e " +
+            "LEFT JOIN patient AS p ON p.patient_id = e.patient_id " +
+            "LEFT JOIN vaccine AS v ON v.vaccine_id = e.vaccine_id " +
+            "WHERE e.vaccine_date = :vaccineDate")
+    fun getFilteredByVaccineDate(vaccineDate: String): LiveData<List<EntryAll>>
+
+    @Query("SELECT e.entry_id, p.patient_name, p.patient_last_name, p.patient_birthday, " +
+            "v.vaccine_name, e.component, e.vaccine_date, e.vaccine_time " +
+            "FROM entry AS e " +
+            "LEFT JOIN patient AS p ON p.patient_id = e.patient_id " +
+            "LEFT JOIN vaccine AS v ON v.vaccine_id = e.vaccine_id " +
+            "WHERE p.patient_last_name = :lastName AND e.vaccine_date = :vaccineDate")
+    fun getFilteredByLastNameAndVaccineDate(lastName: String, vaccineDate: String):
+            LiveData<List<EntryAll>>
 }

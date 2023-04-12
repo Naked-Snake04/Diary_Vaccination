@@ -55,6 +55,14 @@ class SelectEntryFragment : Fragment() {
                 adapterEntry.data = entries
         })
 
+        binding.filterButton.setOnClickListener {
+            val filter = EntryViewModel.FilterData()
+            filter.lastName = binding.editTextFilterLastName.text.toString()
+            filter.vaccineDate = binding.filterVaccineDate.text.toString()
+
+            viewModelEntry.filter.postValue(filter)
+        }
+
         return binding.root
     }
 

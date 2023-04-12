@@ -43,7 +43,7 @@ class SelectPatientFragment : Fragment() {
                 override fun navigatePatientEdit() {
                     view?.let {
                         Navigation.findNavController(it)
-                            .navigate(R.id.action_selectPatientFragment_to_editPatientFragment)
+                            .navigate(SelectPatientFragmentDirections.actionSelectPatientFragmentToEditPatientFragment())
                     }
                 }
             })

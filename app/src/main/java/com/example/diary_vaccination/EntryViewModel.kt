@@ -2,9 +2,12 @@ package com.example.diary_vaccination
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.diary_vaccination.database.DiaryVaccinationDao
 import com.example.diary_vaccination.database.Entry
+import com.example.diary_vaccination.database.EntryAll
 import kotlinx.coroutines.*
 
 class EntryViewModel(
@@ -18,6 +21,14 @@ class EntryViewModel(
         viewModelJob.cancel()
     }
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
+    var entries: LiveData<List<EntryAll>>
+    var filter = MutableLiveData<FilterData>(FilterData())
+    init {
+        entries = Transformations.switchMap(filter){ filter ->
+            filterEntry(filter.lastName, filter.vaccineDate)
+        }
+    }
 
     fun initNewEntry(patientId: Long, vaccineId: Long, component: Long,
     vaccineDate: String, vaccineTime: String){
@@ -68,8 +79,25 @@ class EntryViewModel(
         }
     }
 
-    val entries = dao.getAllEntries()
-    val listTasksDB = Transformations.map(entries) { tasks ->
-        parselistTasksDB(tasks, application.resources)
+//    val entries = dao.getAllEntries()
+//    val listTasksDB = Transformations.map(entries) { tasks ->
+//        parselistTasksDB(tasks, application.resources)
+//    }
+
+    private fun filterEntry(lastName: String, vaccineDate: String): LiveData<List<EntryAll>>{
+        if (lastName != "" && vaccineDate == ""){
+            return dao.getFilteredByLastName(lastName)
+        } else if (lastName == "" && vaccineDate != ""){
+            return dao.getFilteredByVaccineDate(vaccineDate)
+        } else if (lastName != "" && vaccineDate != ""){
+            return dao.getFilteredByLastNameAndVaccineDate(lastName, vaccineDate)
+        }
+
+        return dao.getAllEntries()
+    }
+
+    class FilterData{
+        var lastName: String = ""
+        var vaccineDate: String = ""
     }
 }
