@@ -71,6 +71,7 @@ class SettingsMenuFragment : Fragment() {
 
             clearAllVaccination.setOnClickListener {
                 viewModelVaccine.clearAllVaccine()
+                viewModelEntry.clearAllEntries()
                 Toast.makeText(application, toastClearVaccine, duration).show()
             }
         }
