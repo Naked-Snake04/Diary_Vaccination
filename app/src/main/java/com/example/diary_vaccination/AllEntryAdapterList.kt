@@ -36,7 +36,7 @@ class AllEntryAdapterList(private val onClickListener: EntryOnClickListener):
         }
 
         holder.updateEntry.setOnClickListener {
-            onClickListener.navigateEdit()
+            onClickListener.navigateEdit(item.entry_id.toString())
         }
 
     }

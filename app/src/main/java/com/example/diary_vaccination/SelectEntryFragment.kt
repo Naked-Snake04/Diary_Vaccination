@@ -40,10 +40,11 @@ class SelectEntryFragment : Fragment() {
                     viewModelEntry.clearToEntry(id)
                 }
 
-                override fun navigateEdit() {
+                override fun navigateEdit(id: String) {
                     view?.let {
                         Navigation.findNavController(it)
-                            .navigate(R.id.action_selectEntryFragment_to_editEntryFragment)
+                            .navigate(SelectEntryFragmentDirections
+                                .actionSelectEntryFragmentToEditEntryFragment(id))
                     }
                 }
             }

@@ -45,6 +45,26 @@ class EntryViewModel(
         }
     }
 
+    fun updateEntry(entryId: String, patientId: String, vaccineId: String, component: String,
+                    vaccineDate: String, vaccineTime: String){
+        uiScope.launch {
+            updateEntryById(entryId, patientId, vaccineId, component, vaccineDate, vaccineTime)
+        }
+    }
+
+    private suspend fun updateEntryById(
+        entryId: String,
+        patientId: String,
+        vaccineId: String,
+        component: String,
+        vaccineDate: String,
+        vaccineTime: String
+    ) {
+        withContext(Dispatchers.IO){
+            dao.updateEntry(entryId, patientId, vaccineId, component, vaccineDate, vaccineTime)
+        }
+    }
+
     fun clearEntryByPatientId(id: String){
         uiScope.launch {
             clearEntryByPatientIdQuery(id)

@@ -73,7 +73,11 @@
     <fragment
         android:id="@+id/editEntryFragment"
         android:name="com.example.diary_vaccination.EditEntryFragment"
-        android:label="EditEntryFragment" />
+        android:label="EditEntryFragment" >
+        <argument
+            android:name="entryId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/editPatientFragment"
         android:name="com.example.diary_vaccination.EditPatientFragment"

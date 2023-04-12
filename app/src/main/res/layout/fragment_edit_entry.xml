@@ -89,7 +89,7 @@
                     android:autofillHints="@string/hint_time"/>
 
                 <Button
-                    android:id="@+id/addNewEntry"
+                    android:id="@+id/save_entry"
                     android:text="@string/save_button"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"

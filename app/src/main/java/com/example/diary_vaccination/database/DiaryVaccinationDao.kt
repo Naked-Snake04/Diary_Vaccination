@@ -16,7 +16,7 @@ interface DiaryVaccinationDao {
             "WHERE patient_id = :patientId")
     fun updatePatient(
         patientId: String, patientName: String, patientLastName: String,
-        patientSurname: String, patientBirthday: String,)
+        patientSurname: String, patientBirthday: String)
 
     @Query("DELETE FROM patient")
     fun clearPatient()
@@ -56,6 +56,14 @@ interface DiaryVaccinationDao {
 
     @Query("DELETE FROM entry WHERE entry_id = :id")
     fun clearToEntry(id: String)
+
+    @Query("UPDATE entry SET patient_id = :patientId, vaccine_id = :vaccineId, " +
+            "component = :component, vaccine_date = :vaccineDate, vaccine_time = :vaccineTime " +
+            "WHERE entry_id = :entryId")
+    fun updateEntry(
+        entryId: String, patientId: String, vaccineId: String,
+        component: String, vaccineDate: String, vaccineTime: String
+    )
 
     @Query("SELECT e.entry_id, p.patient_name, p.patient_last_name, p.patient_birthday, " +
             "v.vaccine_name, e.component, e.vaccine_date, e.vaccine_time " +

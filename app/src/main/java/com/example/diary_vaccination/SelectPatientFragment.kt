@@ -43,15 +43,16 @@ class SelectPatientFragment : Fragment() {
                 override fun navigatePatientEdit(id: String) {
                     view?.let {
                         Navigation.findNavController(it)
-                            .navigate(SelectPatientFragmentDirections.actionSelectPatientFragmentToEditPatientFragment(id))
+                            .navigate(SelectPatientFragmentDirections
+                                .actionSelectPatientFragmentToEditPatientFragment(id))
                     }
                 }
             })
         binding.selectPatients.adapter = adapterPatient
-        viewModelPatient.patients.observe(viewLifecycleOwner, Observer { patients ->
+        viewModelPatient.patients.observe(viewLifecycleOwner){ patients ->
             if(patients!=null)
                 adapterPatient.data = patients
-        })
+        }
 
         return binding.root
     }
