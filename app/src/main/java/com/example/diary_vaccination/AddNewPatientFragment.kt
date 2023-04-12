@@ -44,6 +44,9 @@ class AddNewPatientFragment : Fragment() {
                 )
                 Toast.makeText(application, toastText, duration).show() // Успешный успех
                 binding.Name.text.clear()
+                binding.LastName.text.clear()
+                binding.Surname.text.clear()
+                binding.Birthday.text.clear()
 
             } else {
                 Toast.makeText(application, toastError, duration).show() //Не успешный не успех

@@ -46,6 +46,7 @@ class EditPatientFragment : Fragment() {
                     binding.Birthday.text.toString()
                 )
                 Toast.makeText(application, toastText, duration).show()
+                binding.Name.text.clear()
                 binding.LastName.text.clear()
                 binding.Surname.text.clear()
                 binding.Birthday.text.clear()
