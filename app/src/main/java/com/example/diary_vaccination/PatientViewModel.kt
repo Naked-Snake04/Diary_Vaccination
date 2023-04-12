@@ -37,6 +37,21 @@ class PatientViewModel(
         }
     }
 
+    fun updatePatient(patientName: String, patientLastName: String,
+                      patientSurname: String, patientBirthday: String){
+        uiScope.launch {
+            val updatePatient = Patient(patientName = patientName, patientLastName = patientLastName,
+                patientSurname = patientSurname, patientBirthday = patientBirthday)
+            updatePatientQuery(updatePatient)
+        }
+    }
+
+    private suspend fun updatePatientQuery(patient: Patient) {
+        withContext(Dispatchers.IO){
+            dao.updatePatient(patient)
+        }
+    }
+
     fun clearAllPatients(){
         uiScope.launch {
             clearAllPatientsQueries()

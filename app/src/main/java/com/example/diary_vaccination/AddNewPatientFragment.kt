@@ -24,7 +24,7 @@ class AddNewPatientFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dao = VaccinationDatabase.getInstance(application).getDiaryVaccinationDao()
-        val viewModelFactory = AddNewPatientViewModelFactory(dao, application)
+        val viewModelFactory = PatientViewModelFactory(dao, application)
         viewModel = ViewModelProvider(this, viewModelFactory)[PatientViewModel::class.java]
 
         val toastText = "The Patient has been added"

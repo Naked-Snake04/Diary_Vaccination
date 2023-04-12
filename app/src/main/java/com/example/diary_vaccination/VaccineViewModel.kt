@@ -7,7 +7,7 @@ import com.example.diary_vaccination.database.DiaryVaccinationDao
 import com.example.diary_vaccination.database.Vaccine
 import kotlinx.coroutines.*
 
-class AddNewVaccineViewModel(
+class VaccineViewModel(
     val dao: DiaryVaccinationDao,
     application: Application
 ) : AndroidViewModel(application) {

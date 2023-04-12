@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.diary_vaccination.database.VaccinationDatabase
 import com.example.diary_vaccination.databinding.FragmentAddNewEntryBinding
 
-private lateinit var viewModelVaccine: AddNewVaccineViewModel
+private lateinit var viewModelVaccine: VaccineViewModel
 private lateinit var viewModelEntry: EntryViewModel
 private lateinit var viewModelPatient: PatientViewModel
 
@@ -23,11 +23,11 @@ class AddNewEntryFragment : Fragment() {
     ): View {
         val application = requireNotNull(this.activity).application //Инициализация класса для общения с бд
         val dao = VaccinationDatabase.getInstance(application).getDiaryVaccinationDao()
-        val viewModelVaccineFactory = AddNewVaccineViewModelFactory(dao, application)
-        val viewModelEntryFactory = AddNewEntryViewModelFactory(dao, application)
-        val viewModelPatientFactory = AddNewPatientViewModelFactory(dao, application)
+        val viewModelVaccineFactory = VaccineViewModelFactory(dao, application)
+        val viewModelEntryFactory = EntryViewModelFactory(dao, application)
+        val viewModelPatientFactory = PatientViewModelFactory(dao, application)
 
-        viewModelVaccine = ViewModelProvider(this, viewModelVaccineFactory)[AddNewVaccineViewModel::class.java]
+        viewModelVaccine = ViewModelProvider(this, viewModelVaccineFactory)[VaccineViewModel::class.java]
         viewModelEntry = ViewModelProvider(this, viewModelEntryFactory)[EntryViewModel::class.java]
         viewModelPatient = ViewModelProvider(this, viewModelPatientFactory)[PatientViewModel::class.java]
 

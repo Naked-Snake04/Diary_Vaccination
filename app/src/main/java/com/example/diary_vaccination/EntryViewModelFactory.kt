@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.diary_vaccination.database.DiaryVaccinationDao
 
-class AddNewEntryViewModelFactory (
+class EntryViewModelFactory (
     private val dao: DiaryVaccinationDao,
     private val application: Application
 ) : ViewModelProvider.Factory {
