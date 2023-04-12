@@ -24,7 +24,7 @@
 
                 <EditText
                     android:id="@+id/editTextFilterLastName"
-                    android:layout_width="318dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/search_by_last_name"
@@ -34,19 +34,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" >
+
                     <EditText
                         android:id="@+id/filter_vaccine_date"
-                        android:layout_width="318dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/search_by_date"
                         android:inputType="date" />
-                    <Button
-                        android:id="@+id/filter_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/filter_text"/>
+
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/filter_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_text" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/select_entries"
                     android:layout_width="match_parent"
