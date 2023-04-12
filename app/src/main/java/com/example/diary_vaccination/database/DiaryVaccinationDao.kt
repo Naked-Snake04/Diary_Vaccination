@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
 
 @Dao
 interface DiaryVaccinationDao {
@@ -12,8 +11,12 @@ interface DiaryVaccinationDao {
     @Insert
     fun insertPatient(patient: Patient)
 
-    @Update
-    fun updatePatient(patient: Patient)
+    @Query("UPDATE patient SET patient_name = :patientName, patient_last_name = :patientLastName, " +
+            "patient_surname = :patientSurname, patient_birthday = :patientBirthday " +
+            "WHERE patient_id = :patientId")
+    fun updatePatient(
+        patientId: String, patientName: String, patientLastName: String,
+        patientSurname: String, patientBirthday: String,)
 
     @Query("DELETE FROM patient")
     fun clearPatient()

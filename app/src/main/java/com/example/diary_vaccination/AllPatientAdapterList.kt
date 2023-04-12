@@ -5,16 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diary_vaccination.database.Patient
 
-class AllPatientAdapterList(private val onClickListener: PatientOnClickListener): RecyclerView.Adapter<PatientViewHolder>() {
+class AllPatientAdapterList(private val onClickListener: PatientOnClickListener) :
+    RecyclerView.Adapter<PatientViewHolder>() {
     var data = listOf<Patient>()
-        set(value){
+        set(value) {
             field = value
             notifyDataSetChanged()
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.select_patient_view,
-        parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.select_patient_view,
+            parent, false
+        )
 
         return PatientViewHolder(view)
     }
@@ -31,7 +34,7 @@ class AllPatientAdapterList(private val onClickListener: PatientOnClickListener)
             onClickListener.patientOnClick(item.patientId.toString())
         }
         holder.updatePatient.setOnClickListener {
-            onClickListener.navigatePatientEdit()
+            onClickListener.navigatePatientEdit(item.patientId.toString())
         }
     }
 

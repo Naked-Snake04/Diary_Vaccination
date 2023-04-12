@@ -40,10 +40,10 @@ class SelectPatientFragment : Fragment() {
                     viewModelEntry.clearEntryByPatientId(id)
                 }
 
-                override fun navigatePatientEdit() {
+                override fun navigatePatientEdit(id: String) {
                     view?.let {
                         Navigation.findNavController(it)
-                            .navigate(SelectPatientFragmentDirections.actionSelectPatientFragmentToEditPatientFragment())
+                            .navigate(SelectPatientFragmentDirections.actionSelectPatientFragmentToEditPatientFragment(id))
                     }
                 }
             })

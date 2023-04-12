@@ -34,7 +34,8 @@ class AddNewPatientFragment : Fragment() {
         binding.saveNewPatient.setOnClickListener {
             if (binding.Name.text.toString() != "" &&
                 binding.LastName.text.toString() != "" &&
-                binding.Surname.text.toString() != ""){
+                binding.Surname.text.toString() != "" &&
+                binding.Birthday.text.toString() != ""){
                 viewModel.initNewPatient(
                     binding.Name.text.toString(),
                     binding.LastName.text.toString(),
@@ -43,9 +44,7 @@ class AddNewPatientFragment : Fragment() {
                 )
                 Toast.makeText(application, toastText, duration).show() // Успешный успех
                 binding.Name.text.clear()
-                binding.LastName.text.clear()
-                binding.Surname.text.clear()
-                binding.Birthday.text.clear()
+
             } else {
                 Toast.makeText(application, toastError, duration).show() //Не успешный не успех
             }
